@@ -1,4 +1,4 @@
-class animals:
+class Animals:
     name = 'Имя'
     weight = 0
     animal_sound = ''
@@ -11,9 +11,9 @@ class animals:
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        animals.counter += 1
-        animals.list_instances.append(self.weight)
-        animals.dict_instances[name] = weight
+        Animals.counter += 1
+        Animals.list_instances.append(self.weight)
+        Animals.dict_instances[name] = weight
 
     def feeding(self, feed_volume):
         self.satiety = True
@@ -22,46 +22,46 @@ class animals:
         self.utility -= collect_volume
 
 
-class geese(animals):
+class Geese(Animals):
     animal_sound = 'Га га га'
     utility = 20  # яиц
 
 
-class cows(animals):
+class Cows(Animals):
     animal_sound = 'Мууу'
     utility = 10  # литров молока
 
 
-class sheeps(animals):
+class Sheeps(Animals):
     animal_sound = 'Бе бе бе'
     utility = 3  # кг шерсти
 
 
-class chickens(animals):
+class Chickens(Animals):
     animal_sound = 'Ко ко ко'
     utility = 15  # яиц
 
 
-class goats(animals):
+class Goats(Animals):
     animal_sound = 'Меееэ'
     utility = 5  # литров молока
 
 
-class ducks(animals):
+class Ducks(Animals):
     animal_sound = 'Кря кря'
     utility = 5  # яиц
 
 
-goose_1 = geese('Серый', 5)
-goose_2 = geese('Белый', 6)
-cow_1 = cows('Манька', 150)
-sheep_1 = sheeps('Барашек', 30)
-sheep_2 = sheeps('Кудрявый', 35)
-chicken_1 = chickens('Ко-Ко', 12)
-chicken_2 = chickens('Кукареку', 10)
-goat_1 = goats('Рога', 34)
-goat_2 = goats('Рога', 33)
-duck_1 = ducks('Кряква', 9)
+goose_1 = Geese('Серый', 5)
+goose_2 = Geese('Белый', 6)
+cow_1 = Cows('Манька', 150)
+sheep_1 = Sheeps('Барашек', 30)
+sheep_2 = Sheeps('Кудрявый', 35)
+chicken_1 = Chickens('Ко-Ко', 12)
+chicken_2 = Chickens('Кукареку', 10)
+goat_1 = Goats('Рога', 34)
+goat_2 = Goats('Рога', 33)
+duck_1 = Ducks('Кряква', 9)
 
 goose_1.feeding(2)
 goose_2.feeding(5)
@@ -86,13 +86,13 @@ goat_2.collect_utility(7)
 duck_1.collect_utility(1)
 
 total_weight_list = []
-for weight in animals.list_instances:
+for weight in Animals.list_instances:
     total_weight_list.append(weight)
 
 print('Суммарный вес животных на ферме: {} кг\n'
       'Самое тяжелое животное: {} кг'
       .format(sum(total_weight_list), max(total_weight_list)))
 
-for name, weight in animals.dict_instances.items():
+for name, weight in Animals.dict_instances.items():
     if max(total_weight_list) == weight:
         print('Самое тяжелое животное зовут {}'.format(name))
